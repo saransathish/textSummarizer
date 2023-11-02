@@ -1,2 +1,2 @@
-djando
+django
 google-api-python-client
