@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: TextSummarizer
+    buildCommand: "./build.sh"
+    env: python
+    startCommand: "gunicorn TextSummarizer.wsgi:application"
