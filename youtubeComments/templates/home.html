@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Player</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <center><h1>Youtube Comment Summarizer</h1></center>
+    <div class="video-container">
+
+        <!-- <video class="video" src="{% static 'video.mp4' %}"></video> -->
+        <video class="video" controls>
+            <source src="{% static 'video.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="comments">
+        <a href="refresh/"><h2>Comments</h2></a>
+        <ul class="comment-list">
+            {% for x in comment %}
+            <li class="comment">
+                <img class="user-avatar" src="{% static 'images.png' %}" alt="User Avatar">
+                <div class="comment-content">
+                    <p class="comment-text">{{x}}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <center><a href="summarize/"><button style="height: 40px;width: 160px; background-color: green;color: white;">Summarize comments</button></a></center>
+    {% if summarize %}
+    <div class="comments">
+    <p>{{ content}}<p>
+    <center><a href="clssummarize/"><button style="height: 40px;width: 160px; background-color: green;color: white;">close summary</button></a></center>
+    </div>
+    {% endif %}
+    
+</body>
+</html>
+
+
+
